@@ -5,6 +5,10 @@
  */
 package CD;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +22,11 @@ public class CoderDecoderUI extends javax.swing.JFrame {
      */
     public CoderDecoderUI() {
         initComponents();
+        GridLayout mainLayout = new GridLayout();
+        mainLayout.addLayoutComponent("", inTextField);
+        mainLayout.addLayoutComponent("", jPanel1);
+        mainLayout.addLayoutComponent("", outTextField);
+        jPanel2.setLayout(mainLayout);
     }
 
     /**
@@ -36,11 +45,6 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         dialogTextField = new javax.swing.JTextField();
         dialogKeyLabel = new javax.swing.JLabel();
         dialogEnterButton = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        selectedMethodLabel = new javax.swing.JLabel();
-        codeMethodLabel = new javax.swing.JLabel();
-        keyLabel = new javax.swing.JLabel();
-        currentKeyLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         outTextField = new javax.swing.JTextArea();
@@ -51,6 +55,11 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         decodeLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         inTextField = new javax.swing.JTextArea();
+        keyLabel = new javax.swing.JLabel();
+        currentKeyLabel = new javax.swing.JLabel();
+        codeMethodLabel = new javax.swing.JLabel();
+        selectedMethodLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuCodeMethods = new javax.swing.JMenu();
@@ -133,20 +142,13 @@ public class CoderDecoderUI extends javax.swing.JFrame {
             }
         });
 
-        selectedMethodLabel.setText("Rot13");
-
-        codeMethodLabel.setText("Code Method:");
-
-        keyLabel.setText("Key:");
-
-        currentKeyLabel.setText("13");
-
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         outTextField.setColumns(20);
         outTextField.setRows(5);
         jScrollPane3.setViewportView(outTextField);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(300, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         encodeButton.setText("►");
@@ -155,7 +157,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                 encodeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(encodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 20));
+        jPanel1.add(encodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 20));
 
         decodeButton.setText("◄");
         decodeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -163,13 +165,13 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                 decodeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(decodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 20));
+        jPanel1.add(decodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, 20));
 
         encodeLable.setText("Encode:");
-        jPanel1.add(encodeLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(encodeLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         decodeLabel.setText("Decode:");
-        jPanel1.add(decodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel1.add(decodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         inTextField.setColumns(20);
         inTextField.setRows(5);
@@ -182,20 +184,27 @@ public class CoderDecoderUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
             .addComponent(jScrollPane3)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        keyLabel.setText("Key:");
+
+        currentKeyLabel.setText("13");
+
+        codeMethodLabel.setText("Code Method:");
+
+        selectedMethodLabel.setText("Rot13");
 
         menuFile.setText("File");
         jMenuBar1.add(menuFile);
@@ -244,32 +253,36 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(codeMethodLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(keyLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(currentKeyLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(codeMethodLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(keyLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentKeyLabel)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(codeMethodLabel))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(codeMethodLabel)
-                    .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(keyLabel)
                     .addComponent(currentKeyLabel))
-                .addGap(1, 1, 1))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -293,6 +306,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
 
     private void rot13ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rot13ButtonActionPerformed
         SettingsChanger.methodChanged(rot13Button.getText());
+        selectedMethodLabel.setText(rot13Button.getText());
     }//GEN-LAST:event_rot13ButtonActionPerformed
 
     private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
@@ -301,10 +315,12 @@ public class CoderDecoderUI extends javax.swing.JFrame {
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         SettingsChanger.methodChanged(noButton.getText());
+        selectedMethodLabel.setText(noButton.getText());
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void dialogEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dialogEnterButtonActionPerformed
         CoderDecoder.keyChaged(dialogTextField.getText());
+        currentKeyLabel.setText(dialogTextField.getText());
         jDialog1.setVisible(false);
     }//GEN-LAST:event_dialogEnterButtonActionPerformed
 
