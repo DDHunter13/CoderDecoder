@@ -14,7 +14,15 @@ public class CoderDecoder {
     
     private static String currentKey = "13";
     
-    static CoderInterface inst = new Rot13();
+    private static CoderInterface inst = new Rot13();
+    
+    public static CoderInterface getInstance(){
+        return inst;
+    }
+    
+    public static void setInstance(CoderInterface ci){
+        inst = ci;
+    }
     
     public static void keyChaged(String str){
         currentKey = str;

@@ -9,14 +9,12 @@ public class Rot13 implements CoderInterface {
         StringBuilder sb = new StringBuilder();
         int rotKey = Integer.parseInt(key);
         for (char ch: str.toCharArray()){
-            int i = (int)ch;
-            if (i == 10){
-                sb.append((char)10);
-            }else {
-                i += rotKey;
-                sb.append((char)i);
-            }            
-        }
+            if ((int)ch == 10){
+                sb.append(ch);
+            }else{
+            sb.append(ch += rotKey );
+            }
+        }    
         return sb.toString();
     }
     
@@ -25,12 +23,10 @@ public class Rot13 implements CoderInterface {
         StringBuilder sb = new StringBuilder();
         int rotKey = Integer.parseInt(key);
         for (char ch: str.toCharArray()){
-            int i = (int)ch;
-            if (i == 10){
-                sb.append((char)10);
+            if ((int)ch == 10){
+                sb.append(ch);
             }else {
-                i -= rotKey;
-                sb.append((char)i);
+                sb.append(ch -= rotKey);
             }            
         }
         return sb.toString();

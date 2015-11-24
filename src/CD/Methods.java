@@ -13,5 +13,5 @@ package CD;
 public final class Methods {
     public static final String ROT13 = "Rot13";
     public static final String NO = "No";
-    private Methods(){};
+    private Methods() {};
 }

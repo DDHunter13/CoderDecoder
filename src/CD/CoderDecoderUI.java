@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,9 +24,6 @@ public class CoderDecoderUI extends javax.swing.JFrame {
     public CoderDecoderUI() {
         initComponents();
         GridLayout mainLayout = new GridLayout();
-        mainLayout.addLayoutComponent("", inTextField);
-        mainLayout.addLayoutComponent("", jPanel1);
-        mainLayout.addLayoutComponent("", outTextField);
         jPanel2.setLayout(mainLayout);
     }
 
@@ -49,10 +47,10 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         outTextField = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        encodeButton = new javax.swing.JButton();
-        decodeButton = new javax.swing.JButton();
         encodeLable = new javax.swing.JLabel();
+        encodeButton = new javax.swing.JButton();
         decodeLabel = new javax.swing.JLabel();
+        decodeButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         inTextField = new javax.swing.JTextArea();
         keyLabel = new javax.swing.JLabel();
@@ -151,13 +149,19 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         jPanel1.setMaximumSize(new java.awt.Dimension(300, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        encodeLable.setText("Encode:");
+        jPanel1.add(encodeLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
         encodeButton.setText("►");
         encodeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 encodeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(encodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 20));
+        jPanel1.add(encodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 43, 20));
+
+        decodeLabel.setText("Decode:");
+        jPanel1.add(decodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         decodeButton.setText("◄");
         decodeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -165,13 +169,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                 decodeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(decodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, 20));
-
-        encodeLable.setText("Encode:");
-        jPanel1.add(encodeLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-
-        decodeLabel.setText("Decode:");
-        jPanel1.add(decodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel1.add(decodeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
 
         inTextField.setColumns(20);
         inTextField.setRows(5);
@@ -257,15 +255,15 @@ public class CoderDecoderUI extends javax.swing.JFrame {
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(codeMethodLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(keyLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(currentKeyLabel)))
+                        .addComponent(currentKeyLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(codeMethodLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -274,14 +272,15 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(codeMethodLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(selectedMethodLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codeMethodLabel))
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(keyLabel)
+                            .addComponent(currentKeyLabel)))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(keyLabel)
-                    .addComponent(currentKeyLabel))
                 .addGap(28, 28, 28))
         );
 

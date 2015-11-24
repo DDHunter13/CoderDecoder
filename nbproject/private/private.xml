@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/test/CD/NoTest.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/CoderDecoder.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/KeyGenerator.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/No.java</file>
@@ -11,6 +12,7 @@
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/CoderDecoderUI.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/Rot13.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/src/CD/CoderInterface.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/CoderDecoder/test/CD/Rot13Test.java</file>
         </group>
     </open-files>
 </project-private>

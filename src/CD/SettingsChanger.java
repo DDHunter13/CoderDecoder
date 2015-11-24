@@ -13,12 +13,15 @@ package CD;
 public class SettingsChanger {
     
     public static void methodChanged(String name){
+        CoderInterface i;
         switch (name){
             case Methods.ROT13:
-                CoderDecoder.inst = new Rot13();
+                i = new Rot13();
+                CoderDecoder.setInstance(i);
                 break;
             case Methods.NO:
-                CoderDecoder.inst = new No();
+                i = new No();
+                CoderDecoder.setInstance(i);
                 break;
                 
         }
