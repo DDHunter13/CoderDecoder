@@ -17,32 +17,12 @@ import static org.junit.Assert.*;
  * @author Asus
  */
 public class NoTest {
-    
-    public NoTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of encode method, of class No.
      */
     @Test
     public void testEncode() {
-        System.out.println("encode");
         No instance = new No();
         assertEquals("Hello World", instance.encode("Hello World", "13"));
         assertEquals("Invalid key", instance.encode("Invalid key", "13"));
@@ -54,7 +34,6 @@ public class NoTest {
      */
     @Test
     public void testDecode() {
-        System.out.println("decode");
         No instance = new No();
         assertEquals("Hello World", instance.decode("Hello World", "13"));
         assertEquals("Invalid key", instance.decode("Invalid key", "13"));

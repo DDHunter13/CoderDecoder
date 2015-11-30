@@ -63,6 +63,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
         menuCodeMethods = new javax.swing.JMenu();
         noButton = new javax.swing.JRadioButtonMenuItem();
         rot13Button = new javax.swing.JRadioButtonMenuItem();
+        rotDifButton = new javax.swing.JRadioButtonMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         settingsMenuButton = new javax.swing.JMenuItem();
 
@@ -177,27 +178,27 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(encodeLable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(encodeButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(decodeLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(decodeButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(encodeLable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(encodeButton)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(decodeButton)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(encodeLable)
                     .addComponent(encodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(decodeLabel)
                     .addComponent(decodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -216,7 +217,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
             .addComponent(jScrollPane3)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -257,6 +258,15 @@ public class CoderDecoderUI extends javax.swing.JFrame {
             }
         });
         menuCodeMethods.add(rot13Button);
+
+        codeMethodButtonGroup.add(rotDifButton);
+        rotDifButton.setText("RotDif");
+        rotDifButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rotDifButtonActionPerformed(evt);
+            }
+        });
+        menuCodeMethods.add(rotDifButton);
         menuCodeMethods.add(jSeparator2);
 
         settingsMenuButton.setText("Settings");
@@ -288,7 +298,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                         .addComponent(keyLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(currentKeyLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(449, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +315,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
                             .addComponent(keyLabel)
                             .addComponent(currentKeyLabel)))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -350,6 +360,11 @@ public class CoderDecoderUI extends javax.swing.JFrame {
     private void encodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encodeButtonActionPerformed
         outTextField.setText(CoderDecoder.encode(inTextField.getText()));
     }//GEN-LAST:event_encodeButtonActionPerformed
+
+    private void rotDifButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rotDifButtonActionPerformed
+        SettingsChanger.methodChanged(rotDifButton.getText());
+        selectedMethodLabel.setText(rotDifButton.getText());
+    }//GEN-LAST:event_rotDifButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,6 +432,7 @@ public class CoderDecoderUI extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem noButton;
     private javax.swing.JTextArea outTextField;
     private javax.swing.JRadioButtonMenuItem rot13Button;
+    private javax.swing.JRadioButtonMenuItem rotDifButton;
     private javax.swing.JLabel selectedMethodLabel;
     private javax.swing.JMenuItem settingsMenuButton;
     // End of variables declaration//GEN-END:variables
